@@ -4,6 +4,9 @@ const container = canvas.parentNode;
 const undoButton = document.getElementById('undo-button');
 const clearButton = document.getElementById('clear-button');
 const saveBtn = document.getElementById("saveBtn");
+const hideBtn = document.getElementById("hideBtn");
+const showBtn = document.getElementById("showBtn");
+
 
 const savedStates = [];
 
@@ -29,6 +32,8 @@ canvas.addEventListener('mouseup', stopDrawing);
 
 undoButton.addEventListener('click', undo);
 clearButton.addEventListener('click', clearCanvas);
+hideBtn.addEventListener('click', hideBar);
+showBtn.addEventListener('click', showBar);
 
 ctx.strokeStyle = strokeStyle;
 ctx.lineWidth = lineWidth;
@@ -49,6 +54,18 @@ function startTimer() {
   timerId = setTimeout(() => {
     document.getElementById('console').innerText = ("")
   }, 3000);
+}
+
+function hideBar() {
+  document.getElementById("buttoncontainer").style.visibility = "hidden";
+  document.getElementById("small-buttoncontainer").style.visibility = "hidden";
+  document.getElementById("showBtn").style.visibility = "visible";
+}
+
+function showBar() {
+  document.getElementById("buttoncontainer").style.visibility = "visible";
+  document.getElementById("small-buttoncontainer").style.visibility = "visible";
+  document.getElementById("showBtn").style.visibility = "hidden";
 }
 
 

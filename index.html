@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://kit.fontawesome.com/15d17e7f8a.js" crossorigin="anonymous"></script>
     <script
  	 src="https://code.jquery.com/jquery-3.6.4.min.js"
  	 integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -18,11 +19,17 @@
     
   </head>
   <body>
-    <div class="buttoncontainer">
+    <div class="buttoncontainer" id="buttoncontainer">
       <button id="undo-button" class="buttons">Undo</button>
       <button id="clear-button" class="buttons">Limpar</button>
       <button id="saveBtn" class="buttons">Salvar</button>
     </div>
+
+    <div class="small-buttoncontainer" id="small-buttoncontainer">
+      <button id="hideBtn" class="small-buttons"><i class="fa-sharp fa-solid fa-eye-slash"></i></button>
+    </div>
+    <button id="showBtn" class="small-buttons"><i class="fa-solid fa-eye"></i></button>
+    
     <div id="canvas-container">
         <canvas id="drawingArea"></canvas>
         <script src="index.js"></script>
