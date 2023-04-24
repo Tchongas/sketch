@@ -7,6 +7,8 @@ const saveBtn = document.getElementById("saveBtn");
 const hideBtn = document.getElementById("hideBtn");
 const showBtn = document.getElementById("showBtn");
 
+const hideInfoBtn = document.getElementById("closeInfoBtn");
+const showInfoBtn = document.getElementById("infoBtn");
 
 const savedStates = [];
 
@@ -35,6 +37,9 @@ clearButton.addEventListener('click', clearCanvas);
 hideBtn.addEventListener('click', hideBar);
 showBtn.addEventListener('click', showBar);
 
+hideInfoBtn.addEventListener('click', hideInfo);
+showInfoBtn.addEventListener('click', showInfo);
+
 ctx.strokeStyle = strokeStyle;
 ctx.lineWidth = lineWidth;
 ctx.lineCap = lineCap;
@@ -60,12 +65,26 @@ function hideBar() {
   document.getElementById("buttoncontainer").style.visibility = "hidden";
   document.getElementById("small-buttoncontainer").style.visibility = "hidden";
   document.getElementById("showBtn").style.visibility = "visible";
+  document.getElementById("info").style.visibility = "hidden";
+  document.getElementById("infoBtn").style.visibility = "hidden";
 }
 
 function showBar() {
   document.getElementById("buttoncontainer").style.visibility = "visible";
   document.getElementById("small-buttoncontainer").style.visibility = "visible";
   document.getElementById("showBtn").style.visibility = "hidden";
+  document.getElementById("info").style.visibility = "hidden";
+  document.getElementById("infoBtn").style.visibility = "visible";
+}
+
+function hideInfo() {
+  document.getElementById("info").style.visibility = "hidden";
+  document.getElementById("infoBtn").style.visibility = "visible";
+}
+
+function showInfo() {
+  document.getElementById("info").style.visibility = "visible";
+  document.getElementById("infoBtn").style.visibility = "hidden";
 }
 
 

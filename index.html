@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="buttoncontainer" id="buttoncontainer">
-      <button id="undo-button" class="buttons">Undo</button>
+      <button id="undo-button" class="buttons">Voltar</button>
       <button id="clear-button" class="buttons">Limpar</button>
       <button id="saveBtn" class="buttons">Salvar</button>
     </div>
@@ -29,13 +29,33 @@
       <button id="hideBtn" class="small-buttons"><i class="fa-sharp fa-solid fa-eye-slash"></i></button>
     </div>
     <button id="showBtn" class="small-buttons"><i class="fa-solid fa-eye"></i></button>
-    
+    <button id="infoBtn" class="small-buttons">i</button>
     <div id="canvas-container">
         <canvas id="drawingArea"></canvas>
-        <script src="index.js"></script>
     </div>
+
+
+    <div class="info" id="info"> 
+      <button id="closeInfoBtn" class="small-buttons">X</button>
+      <h1 style="text-align: center; margin-bottom:3vw;"><b>Info</b></h1>
+      <p>Todas as opções:</p>
+      <p>Use <b>O</b> e <b>P</b> para mudar o tamanho do traço </p>
+      <p>Use as teclas numericas para mudar de cor:</p>
+      <p class="colornumber">1:</p><div class="cor" style="background-color: #f0f8ff;"></div>
+      <p class="colornumber">2:</p><div class="cor" style="background-color: #cf5b5b;"></div>
+      <p class="colornumber">3:</p><div class="cor" style="background-color: #cfc655;"></div>
+      <p class="colornumber">4:</p><div class="cor" style="background-color: #55cf63;"></div>
+      <p class="colornumber">5:</p><div class="cor" style="background-color: #5755cf;"></div>
+      <p class="colornumber">6:</p><div class="cor" style="background-color: #9655cf;"></div>
+      <p class="colornumber">7:</p><div class="cor" style="background-color: #cf55be;"></div>
+      <p class="colornumber">8:</p><div class="cor" style="background-color: #cf9055;"></div>
+      <p class="colornumber">9:</p><div class="cor" style="background-color: #3b803c;"></div>
+      <p class="colornumber">0:</p><div class="cor" style="background-color: #57d3e6;"></div>
+      <p>Use <b>Ctrl</b>+<b>Z</b> para desfazer traços</p>
+    </div>
+
     <div class="Console" id="console">
-      
+      <script src="index.js"></script>
     </div>
   </body>
 </html>
