@@ -14,10 +14,12 @@ const savedStates = [];
 
 
 let strokeStyle = '#f0f8ff';
-let lineWidth = '2';
+let lineWidth = '4';
 let lineCap = 'round';
 
 let timerId;
+
+let background = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
 
 resizeCanvas();
 
@@ -165,6 +167,13 @@ document.addEventListener("keydown", function(event) {
     strokeStyle = "#57d3e6";
     ctx.strokeStyle = strokeStyle;
     document.getElementById('console').innerText = ("Cor: Azul claro")
+    
+  }
+
+  else if (event.code === "KeyE") {
+    strokeStyle = background;
+    ctx.strokeStyle = strokeStyle;
+    document.getElementById('console').innerText = ("Borracha")
     
   }
 
