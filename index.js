@@ -174,15 +174,6 @@ document.addEventListener("keydown", function(event) {
     strokeStyle = background;
     ctx.strokeStyle = strokeStyle;
     document.getElementById('console').innerText = ("Borracha")
-    while (true) {
-      if (event.code === "KeyE") {
-      strokeStyle = "#57d3e6";
-      ctx.strokeStyle = strokeStyle;
-      document.getElementById('console').innerText = ("Cor: Azul claro");
-      break;
-      }
-    }
-    
   }
 
   else if (event.code === "KeyO") {
