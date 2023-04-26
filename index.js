@@ -188,13 +188,13 @@ document.addEventListener("keydown", function(event) {
     isEraserMode = !isEraserMode;
   }
 
-  else if (event.code === "KeyO") {
+  else if (event.code === "KeyW") {
     ctx.lineWidth = ctx.lineWidth + 2;
     document.getElementById('console').innerText = ("Grossura da linha: "+ ctx.lineWidth)
     
   }
 
-  else if (event.code === "KeyP") {
+  else if (event.code === "KeyQ") {
     ctx.lineWidth = ctx.lineWidth - 2;
     document.getElementById('console').innerText = ("Grossura da linha: "+ ctx.lineWidth)
     
