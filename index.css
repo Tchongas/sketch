@@ -161,3 +161,8 @@ body {
   font-size: 20px;
   margin-left: 10px;
 }
+
+b {
+  border:rgb(177, 177, 177);
+  border-radius: 2px;
+}
