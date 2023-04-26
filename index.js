@@ -228,8 +228,8 @@ function resizeCanvas() {
   saveState();
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  ctx.strokeStyle = '#ffffff';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = pencilColor;
+  ctx.lineWidth = 4;
   ctx.lineCap = 'round';
   restoreState();
 }
