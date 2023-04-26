@@ -225,7 +225,7 @@ saveBtn.addEventListener("click", () => {
 
 
 function resizeCanvas() {
-  
+  saveState();
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx.strokeStyle = pencilColor;
