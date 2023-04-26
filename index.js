@@ -21,6 +21,8 @@ let timerId;
 
 let background = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
 
+let isEraserMode = false;
+
 resizeCanvas();
 
 
@@ -101,7 +103,8 @@ document.addEventListener("keydown", function(event) {
 
   else if (event.code === "Digit2") {
     strokeStyle = "#cf5b5b";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Vermelho")
     
 
@@ -109,71 +112,89 @@ document.addEventListener("keydown", function(event) {
 
   else if (event.code === "Digit1") {
     strokeStyle = "#f0f8ff";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Branco")
 
   }
 
   else if (event.code === "Digit3") {
     strokeStyle = "#cfc655";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Amarelo")
     
   }
 
   else if (event.code === "Digit4") {
     strokeStyle = "#55cf63";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Verde Claro")
     
   }
 
   else if (event.code === "Digit5") {
     strokeStyle = "#5755cf";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Azul Escuro")
     
   }
 
   else if (event.code === "Digit6") {
     strokeStyle = "#9655cf";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Roxo")
     
   }
 
   else if (event.code === "Digit7") {
     strokeStyle = "#cf55be";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Rosa")
     
   }
 
   else if (event.code === "Digit8") {
     strokeStyle = "#cf9055";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Laranja")
     
   }
 
   else if (event.code === "Digit9") {
     strokeStyle = "#3b803c";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Verde Escuro")
     
   }
 
   else if (event.code === "Digit0") {
     strokeStyle = "#57d3e6";
-    ctx.strokeStyle = strokeStyle;
+    pencilColor = stokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Azul claro")
     
   }
 
   else if (event.code === "KeyE") {
-    strokeStyle = background;
-    ctx.strokeStyle = strokeStyle;
-    document.getElementById('console').innerText = ("Borracha")
+    if (isEraserMode) {
+      // Switch back to pencil mode
+      strokeStyle = pencilColor;
+      ctx.strokeStyle = strokeStyle;
+      document.getElementById('console').innerText = ("Lapis");
+    } else {
+      // Switch to eraser mode
+      strokeStyle = backgroundColor;
+      ctx.strokeStyle = strokeStyle;
+      document.getElementById('console').innerText = ("Borracha");
+    }
+    isEraserMode = !isEraserMode;
   }
 
   else if (event.code === "KeyO") {
