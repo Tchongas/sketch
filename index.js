@@ -103,8 +103,7 @@ document.addEventListener("keydown", function(event) {
   }
 
   else if (event.code === "Digit2") {
-    strokeStyle = "#cf5b5b";
-    pencilColor = stokeStyle;
+    pencilColore = "#cf5b5b";
     ctx.strokeStyle = strokeStyle;
     document.getElementById('console').innerText = ("Cor: Vermelho")
     
@@ -112,64 +111,56 @@ document.addEventListener("keydown", function(event) {
   }
 
   else if (event.code === "Digit1") {
-    strokeStyle = "#f0f8ff";
-    pencilColor = stokeStyle;
+    pencilColor = "#f0f8ff";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Branco")
 
   }
 
   else if (event.code === "Digit3") {
-    strokeStyle = "#cfc655";
-    pencilColor = stokeStyle;
+    pencilColor = "#cfc655";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Amarelo")
     
   }
 
   else if (event.code === "Digit4") {
-    strokeStyle = "#55cf63";
-    pencilColor = stokeStyle;
+    pencilColor = "#55cf63";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Verde Claro")
     
   }
 
   else if (event.code === "Digit5") {
-    strokeStyle = "#5755cf";
-    pencilColor = stokeStyle;
+    pencilColor = "#5755cf";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Azul Escuro")
     
   }
 
   else if (event.code === "Digit6") {
-    strokeStyle = "#9655cf";
-    pencilColor = stokeStyle;
+    pencilColor = "#9655cf";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Roxo")
     
   }
 
   else if (event.code === "Digit7") {
-    strokeStyle = "#cf55be";
-    pencilColor = stokeStyle;
+    pencilColor = "#cf55be";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Rosa")
     
   }
 
   else if (event.code === "Digit8") {
-    strokeStyle = "#cf9055";
-    pencilColor = stokeStyle;
+    pencilColor = "#cf9055";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Laranja")
     
   }
 
   else if (event.code === "Digit9") {
-    strokeStyle = "#3b803c";
-    pencilColor = stokeStyle;
+    pencilColor = "#3b803c";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Verde Escuro")
     
@@ -190,7 +181,7 @@ document.addEventListener("keydown", function(event) {
       document.getElementById('console').innerText = ("Lapis");
     } else {
       // Switch to eraser mode
-      strokeStyle = backgroundColor;
+      strokeStyle = background;
       ctx.strokeStyle = strokeStyle;
       document.getElementById('console').innerText = ("Borracha");
     }
