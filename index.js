@@ -106,7 +106,7 @@ document.addEventListener("keydown", function(event) {
     pencilColor = "#cf5b5b";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Vermelho")
-    
+    isEraserMode = false;
 
   }
 
@@ -114,63 +114,63 @@ document.addEventListener("keydown", function(event) {
     pencilColor = "#f0f8ff";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Branco")
-
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit3") {
     pencilColor = "#cfc655";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Amarelo")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit4") {
     pencilColor = "#55cf63";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Verde Claro")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit5") {
     pencilColor = "#5755cf";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Azul Escuro")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit6") {
     pencilColor = "#9655cf";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Roxo")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit7") {
     pencilColor = "#cf55be";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Rosa")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit8") {
     pencilColor = "#cf9055";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Laranja")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit9") {
     pencilColor = "#3b803c";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Verde Escuro")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "Digit0") {
     pencilColor = "#57d3e6";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Azul claro")
-    
+    isEraserMode = false;
   }
 
   else if (event.code === "KeyE") {
