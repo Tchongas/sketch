@@ -104,7 +104,7 @@ document.addEventListener("keydown", function(event) {
 
   else if (event.code === "Digit2") {
     pencilColor = "#cf5b5b";
-    ctx.strokeStyle = strokeStyle;
+    ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Vermelho")
     
 
