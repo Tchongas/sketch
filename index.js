@@ -1,16 +1,17 @@
 const canvas = document.getElementById('drawingArea');
 const ctx = canvas.getContext('2d');
+// qualquer coisa ctx. quer dizer que é sobre o canvas
+
 const container = canvas.parentNode;
 const undoButton = document.getElementById('undo-button');
 const clearButton = document.getElementById('clear-button');
 const saveBtn = document.getElementById("saveBtn");
 const hideBtn = document.getElementById("hideBtn");
 const showBtn = document.getElementById("showBtn");
-
 const hideInfoBtn = document.getElementById("closeInfoBtn");
 const showInfoBtn = document.getElementById("infoBtn");
 
-const savedStates = [];
+const savedStates = []; //aqui fica todas mudanças já feitas, para que possamos usar ctrl Z para voltar nelas
 
 
 let strokeStyle = '#f0f8ff';
@@ -19,6 +20,8 @@ let lineCap = 'round';
 
 let timerId;
 
+
+//var para pegar a cor atual do fundo (nao a que esta no index.css)
 let background = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
 
 let isEraserMode = false;
@@ -50,22 +53,26 @@ ctx.lineWidth = lineWidth;
 ctx.lineCap = lineCap;
 
 let isDrawing = false;
+//LastX e LastY é pra saber a ultima posição da linha, fazendo as linhas serem continuas
 let lastX = 0;
 let lastY = 0;
-let lines = []; // array to store all the lines drawn
+
+let lines = []; // Todas as linhas ficam salvas aqui
 
 
-
+//TIMER DE 3 SEGUNDOS
 function startTimer() {
-  // clear the previous timer if there was one
+  // reiniciar o timer para 3 segundos
   clearTimeout(timerId);
 
-  // start a new timer
+  //começar Timer de 3 segundos para fazer o console sumir
   timerId = setTimeout(() => {
     document.getElementById('console').innerText = ("")
   }, 3000);
 }
 
+
+//FUNÇÕES RELACIONADAS AOS BOTOES E TEXTO, NAO RELACIONADAS AO CANVAS
 function hideBar() {
   document.getElementById("buttoncontainer").style.visibility = "hidden";
   document.getElementById("small-buttoncontainer").style.visibility = "hidden";
@@ -93,12 +100,12 @@ function showInfo() {
 }
 
 
+
+//TODAS AS FUNÇOES QUE ACONTECEM APARTIR DE UMA TECLA
 document.addEventListener("keydown", function(event) {
   
-  
-
   if (event.ctrlKey && event.code === "KeyZ") {
-    undo(); // call the undo() function when "Ctrl+Z" is pressed
+    undo(); 
     document.getElementById('console').innerText = ("Undo")
   }
 
@@ -175,12 +182,15 @@ document.addEventListener("keydown", function(event) {
 
   else if (event.code === "KeyE") {
     if (isEraserMode) {
-      // Switch back to pencil mode
+      /* se isEraserMode é TRUE, quer dizer que a borracha já esta sendo usada, ou seja é pra 
+      desativar ela. A borracha é só um pincel com a cor do fundo, entao aqui só botamos a cor
+      como a ultima cor usada antes da borracha, que esta na var PencilColor*/
       strokeStyle = pencilColor;
       ctx.strokeStyle = strokeStyle;
       document.getElementById('console').innerText = ("Lapis");
     } else {
-      // Switch to eraser mode
+      /* E aqui Colocamos a cor da var ctx.StrokeStyle igual ao fundo, nao mudamos a pencilColor para nao
+      perder a ultima cor usada*/
       strokeStyle = background;
       ctx.strokeStyle = strokeStyle;
       document.getElementById('console').innerText = ("Borracha");
@@ -206,24 +216,25 @@ document.addEventListener("keydown", function(event) {
 });
 
 saveBtn.addEventListener("click", () => {
-  // Get the data URL of the canvas as PNG
+  // Pega a URL do canvas e tranforma em PNG para baixar
   const dataURL = canvas.toDataURL("image/png");
 
-  // Create a link element and set its download attribute to the desired file name
+  // Gambiarra aqui, criamos um elemento a com o link de dowload do canvas e dai simulamos um click
   const link = document.createElement("a");
   link.download = "canvas.png";
 
-  // Set the href attribute of the link to the data URL
+  // setar o href para ser a imagem do canvas
   link.href = dataURL;
 
-  // Simulate a click on the link to trigger the download
+  // simular um click
   link.click();
 });
 
 
 
 
-
+/* Função que é chamada toda vez q o tamanho da tela muda, ela causa um bug que corta certas partes do canvas
+mas é oque temos por enquanto*/
 function resizeCanvas() {
   saveState();
   canvas.width = window.innerWidth;
@@ -234,10 +245,13 @@ function resizeCanvas() {
   restoreState();
 }
 
+//função para salvar oque está no canvas, para que seja possivel usar ctrl Z
 function saveState() {
     savedStates.push(canvas.toDataURL());
   }
 
+// Função do ctrl Z, tira o ultimo valor do array e recria tudo usando uma Imagem
+// nao chama essa função diretamente, chama a UNDO
 function restoreState() {
     const lastState = savedStates.pop();
     const img = new Image();
@@ -249,19 +263,20 @@ function restoreState() {
   }
 
 
-
+//função que define se está desenhando ou não
   function startDrawing(e) {
-    if (e.button === 0) { // Left mouse button
+    if (e.button === 0) { // botao do mouse esquerdo
       isDrawing = true;
       lastX = e.clientX - canvas.offsetLeft;
       lastY = e.clientY - canvas.offsetTop;
       lines.push({ startX: lastX, startY: lastY });
-      saveState(); // Save the current state of the canvas
+      saveState(); // Salvar
     }
   }
   
+  //função q faz as linhas apartir das variaveis e salva as linhas num array
   function draw(e) {
-    if (!isDrawing || e.button !== 0) return; // Exit the function if not drawing or not left mouse button
+    if (!isDrawing || e.button !== 0) return; // return se nao esta desenhando ou se nao está segurando o mouse
     const x = e.clientX - canvas.offsetLeft;
     const y = e.clientY - canvas.offsetTop;
     lines.push({ startX: lastX, startY: lastY, endX: x, endY: y });
@@ -273,22 +288,24 @@ function restoreState() {
     lastY = y;
   }
   
+
+  //função pra parar de desenhar quando larga o mouse
   function stopDrawing(e) {
-    if (e.button === 0) { // Left mouse button
+    if (e.button === 0) {
       isDrawing = false;
     }
   }
 
 
 
-  // Implement the undo function
+  // função do ctrl Z
   function undo() {
-    if (savedStates.length === 0) return; // Don't do anything if there are no saved states
-    restoreState(); // Remove the last saved state and redraw the canvas
+    if (savedStates.length === 0) return; // se nao tem nada salvo retorna
+    restoreState();
 
 
   }
-
+  // limpar o canvas com um retangulo gigante
   function clearCanvas() {
     saveState();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
