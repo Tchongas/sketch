@@ -174,6 +174,11 @@ document.addEventListener("keydown", function(event) {
     strokeStyle = background;
     ctx.strokeStyle = strokeStyle;
     document.getElementById('console').innerText = ("Borracha")
+    if (event.code === "KeyE") {
+      strokeStyle = "#57d3e6";
+      ctx.strokeStyle = strokeStyle;
+      document.getElementById('console').innerText = ("Cor: Azul claro")
+    }
     
   }
 
