@@ -22,6 +22,7 @@ let timerId;
 let background = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
 
 let isEraserMode = false;
+let pencilColor = "#f0f8ff";
 
 resizeCanvas();
 
@@ -175,8 +176,7 @@ document.addEventListener("keydown", function(event) {
   }
 
   else if (event.code === "Digit0") {
-    strokeStyle = "#57d3e6";
-    pencilColor = stokeStyle;
+    pencilColor = "#57d3e6";
     ctx.strokeStyle = pencilColor;
     document.getElementById('console').innerText = ("Cor: Azul claro")
     
