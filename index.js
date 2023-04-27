@@ -14,6 +14,7 @@ const showInfoBtn = document.getElementById("infoBtn");
 const savedStates = []; //aqui fica todas mudanças já feitas, para que possamos usar ctrl Z para voltar nelas
 
 
+
 let strokeStyle = '#f0f8ff';
 let lineWidth = '4';
 let lineCap = 'round';
@@ -21,11 +22,12 @@ let lineCap = 'round';
 let timerId;
 
 
-//var para pegar a cor atual do fundo (nao a que esta no index.css)
-let background = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+//Define a cor do fundo e inicializa a var do background (usada pela borracha)
 
 let isEraserMode = false;
 let pencilColor = "#f0f8ff";
+
+let colorValue = document.getElementById("color-picker").value;
 
 resizeCanvas();
 
@@ -70,6 +72,17 @@ function startTimer() {
     document.getElementById('console').innerText = ("")
   }, 3000);
 }
+
+
+//pegar cor para o fundo
+function getColor() {
+  const colorPicker = document.getElementById("color-picker");
+  colorValue = colorPicker.value;
+  console.log("The selected color is:", colorValue);
+  document.body.style.backgroundColor = colorValue;
+  clearCanvas();
+}
+
 
 
 //FUNÇÕES RELACIONADAS AOS BOTOES E TEXTO, NAO RELACIONADAS AO CANVAS
@@ -191,7 +204,8 @@ document.addEventListener("keydown", function(event) {
     } else {
       /* E aqui Colocamos a cor da var ctx.StrokeStyle igual ao fundo, nao mudamos a pencilColor para nao
       perder a ultima cor usada*/
-      strokeStyle = background;
+      strokeStyle = colorValue;
+      console.log(colorValue)
       ctx.strokeStyle = strokeStyle;
       document.getElementById('console').innerText = ("Borracha");
     }
@@ -207,6 +221,13 @@ document.addEventListener("keydown", function(event) {
   else if (event.code === "KeyQ") {
     ctx.lineWidth = ctx.lineWidth - 2;
     document.getElementById('console').innerText = ("Grossura da linha: "+ ctx.lineWidth)
+    
+    
+  }
+
+  else if (event.code === "KeyR") {
+    clearCanvas();
+    document.getElementById('console').innerText = ("Limpar")
     
     
   }

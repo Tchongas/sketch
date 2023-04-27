@@ -41,7 +41,7 @@
       <button id="closeInfoBtn" class="small-buttons">X</button>
       <h1 style="text-align: center; margin-bottom:3vw;"><b>Info</b></h1>
       <p>Todas as opções:</p>
-      <p>Use <b class="key">Q</b> e <b class="key">W</b> para mudar o tamanho do traço </p>
+      <p>Use <b>Q</b> e <b>W</b> para mudar o tamanho do traço </p>
       <p>Use as teclas numericas para mudar de cor:</p>
 
       <p class="colornumber">1:</p><div class="cor" style="background-color: #f0f8ff;"></div>
@@ -55,8 +55,12 @@
       <p class="colornumber">9:</p><div class="cor" style="background-color: #3b803c;"></div>
       <p class="colornumber">0:</p><div class="cor" style="background-color: #57d3e6;"></div>
 
-      <p>Use <b class="key">Ctrl</b>+<b  class="key">Z</b> para desfazer traços</p>
-      <p>Use a tecla <b  class="key">E</b> para usar a borracha</p>
+      <p>Use <b>Ctrl</b>+<b>Z</b> para desfazer traços</p>
+      <p>Use a tecla <b>E</b> para usar a borracha</p>
+      <p>Use a tecla <b>R</b> para limpar a tela</p>
+      <p>Mude a cor do fundo (desenhos vão ser apagados):</p>
+      <input type="color" id="color-picker" name="color" value="#000000">
+      <button onclick="getColor()" class="btn">Criar nova tela</button>
     </div>
 
     <div class="Console"><p id="console"></p></div>
