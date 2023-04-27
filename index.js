@@ -21,16 +21,15 @@ let lineCap = 'round';
 
 let timerId;
 
-
-//Define a cor do fundo e inicializa a var do background (usada pela borracha)
-
 let isEraserMode = false;
 let pencilColor = "#f0f8ff";
 
+
+//cor do fundo
 let colorValue = document.getElementById("color-picker").value;
 
+//a função resizeCanvas tbm é usada para inicializar algumas coisas
 resizeCanvas();
-
 
 
 canvas.width = window.innerWidth;
@@ -316,8 +315,6 @@ function restoreState() {
       isDrawing = false;
     }
   }
-
-
 
   // função do ctrl Z
   function undo() {
