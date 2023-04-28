@@ -113,7 +113,7 @@ body {
 .Console {
   pointer-events: none;
   visibility: visible;
-  font-size: 1.8vw;
+  font-size: 1.6vw;
   font-weight: bolder;
   display: inline-block;
   position: absolute;
@@ -178,6 +178,7 @@ body {
 
 .btn {
   margin-left: 1vw;
+  margin-bottom: 1vw;
   color: aliceblue;
   border-color: aliceblue;
   border-radius: 5px;
@@ -196,6 +197,18 @@ body {
   appearance: none;
   width: 3vw;
   height: 3vw;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.colorKey {
+  align-self: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 2vw;
+  height: 1.8vw;
   background-color: transparent;
   border: none;
   cursor: pointer;

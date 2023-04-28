@@ -30,6 +30,7 @@ let colorValue = document.getElementById("color-picker").value;
 
 //a função resizeCanvas tbm é usada para inicializar algumas coisas
 resizeCanvas();
+getKeyColor();
 
 
 canvas.width = window.innerWidth;
@@ -82,7 +83,14 @@ function getColor() {
   clearCanvas();
 }
 
-
+function getKeyColor() {
+  const colors = [];
+  for (let i = 0; i <= 9; i++) {
+    const color = document.getElementById(i.toString());
+    colors.push(color.value);
+  }
+  return colors;
+}
 
 //FUNÇÕES RELACIONADAS AOS BOTOES E TEXTO, NAO RELACIONADAS AO CANVAS
 function hideBar() {
@@ -115,80 +123,80 @@ function showInfo() {
 
 //TODAS AS FUNÇOES QUE ACONTECEM APARTIR DE UMA TECLA
 document.addEventListener("keydown", function(event) {
-  
+  const colors = getKeyColor();
   if (event.ctrlKey && event.code === "KeyZ") {
     undo(); 
     document.getElementById('console').innerText = ("Undo")
   }
 
-  else if (event.code === "Digit2") {
-    pencilColor = "#cf5b5b";
+  else if (event.code === "Digit1") {
+    pencilColor = colors[1];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Vermelho")
+    document.getElementById('console').innerText = ("Cor 1")
     isEraserMode = false;
-
   }
 
-  else if (event.code === "Digit1") {
-    pencilColor = "#f0f8ff";
+  else if (event.code === "Digit2") {
+    pencilColor = colors[2];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Branco")
+    document.getElementById('console').innerText = ("Cor 2")
     isEraserMode = false;
+
   }
 
   else if (event.code === "Digit3") {
-    pencilColor = "#cfc655";
+    pencilColor = colors[3];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Amarelo")
+    document.getElementById('console').innerText = ("Cor 3")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit4") {
-    pencilColor = "#55cf63";
+    pencilColor = colors[4];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Verde Claro")
+    document.getElementById('console').innerText = ("Cor 4")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit5") {
-    pencilColor = "#5755cf";
+    pencilColor = colors[5];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Azul Escuro")
+    document.getElementById('console').innerText = ("Cor 5")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit6") {
-    pencilColor = "#9655cf";
+    pencilColor = colors[6];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Roxo")
+    document.getElementById('console').innerText = ("Cor 6")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit7") {
-    pencilColor = "#cf55be";
+    pencilColor = colors[7];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Rosa")
+    document.getElementById('console').innerText = ("Cor 7")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit8") {
-    pencilColor = "#cf9055";
+    pencilColor = colors[8];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Laranja")
+    document.getElementById('console').innerText = ("Cor 8")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit9") {
-    pencilColor = "#3b803c";
+    pencilColor = colors[9];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Verde Escuro")
+    document.getElementById('console').innerText = ("Cor 9")
     isEraserMode = false;
   }
 
   else if (event.code === "Digit0") {
-    pencilColor = "#57d3e6";
+    pencilColor = colors[0];
     ctx.strokeStyle = pencilColor;
-    document.getElementById('console').innerText = ("Cor: Azul claro")
+    document.getElementById('console').innerText = ("Cor 0")
     isEraserMode = false;
   }
 
@@ -330,6 +338,8 @@ function restoreState() {
     
 }
  
+
+
 
 
   
