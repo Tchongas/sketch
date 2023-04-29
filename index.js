@@ -73,6 +73,15 @@ function startTimer() {
   }, 3000);
 }
 
+function getUrl() {
+  const Url = document.getElementById("setUrl");
+  const setUrl = Url.value;
+  const imageLink =  "url('" + setUrl + "')";
+  console.log("URL:", setUrl);
+  document.body.style.backgroundImage = imageLink;
+  clearCanvas();
+}
+
 
 //pegar cor para o fundo
 function getColor() {
@@ -80,8 +89,10 @@ function getColor() {
   colorValue = colorPicker.value;
   console.log("The selected color is:", colorValue);
   document.body.style.backgroundColor = colorValue;
+  document.body.style.backgroundImage = '';
   clearCanvas();
 }
+
 
 function getKeyColor() {
   const colors = [];

@@ -58,9 +58,11 @@
       <p>Use a tecla <b>R</b> para limpar a tela</p>
 
       <p><b>Mude a cor do fundo (desenhos vão ser apagados):</b></p>
-      <div class="colorpicker">
+      <div>
         <input type="color" id="color-picker" name="color" value="#000000">
         <button onclick="getColor()" class="btn">Criar nova tela</button>
+        <input type="text" id="setUrl" name="url" placeholder="Ou use uma URL">
+        <button onclick="getUrl()" class="btn">Criar nova tela</button> 
       </div>
       
     </div>
