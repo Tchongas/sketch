@@ -85,6 +85,9 @@ function getUrl() {
 
 //pegar cor para o fundo
 function getColor() {
+  isEraserMode = false;
+  strokeStyle = pencilColor;
+  ctx.strokeStyle = strokeStyle;
   const colorPicker = document.getElementById("color-picker");
   colorValue = colorPicker.value;
   console.log("The selected color is:", colorValue);
