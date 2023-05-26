@@ -7,3 +7,5 @@ Very Very simple to use, made with only HTML/CSS/JS,
 Use O and P to change the Stroke size, and use 1-9 for other colors
 
 Link to access it: https://tchongas.github.io/sketch/
+
+You can also dowload the desktop version in the releases tab.
